@@ -1,0 +1,22 @@
+org: jritchie1
+app: aws-node-http-api
+service: aws-node-http-api-project
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  hello:
+    handler: src/handlers/hello.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
+  goodbye: 
+    handler: src/handlers/goodbye.handler
+    events:
+      - httpApi:
+          path: /goodbye
+          method: get
